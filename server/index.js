@@ -23,8 +23,8 @@ function getUser(email) {
 
 
 app.post('/signup', (req, res) => {
-    const { email, password } = req.body;
-    storeUser(email, password);
+    const { name, surname, email, password } = req.body;
+    storeUser( name, surname, email, password);
     res.status(201).send('User has registered');
 });
 

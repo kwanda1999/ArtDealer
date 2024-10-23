@@ -18,6 +18,7 @@ import Register from "./components/Register";
 import Navigation from "./components/Navigation"; 
 
 
+
 function App() {
     return (
         <Router>
@@ -33,6 +34,7 @@ function App() {
             </Routes>
         </Router>
     );
+    
 }
 
 export default App;
