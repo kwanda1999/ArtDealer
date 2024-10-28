@@ -16,6 +16,7 @@ import TestView from "./components/TestView";
 import Login from "./components/Login"; 
 import Register from "./components/Register"; 
 import Navigation from "./components/Navigation"; 
+import Checkout from "./components/Checkout";
 
 
 
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="*" element={<Navigate to="/" />} />
                 <Route path="/navigation" element={<Navigation />} />
+                <Route path="/checkout" element={<Checkout />} />
             </Routes>
         </Router>
     );

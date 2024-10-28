@@ -29,6 +29,10 @@ const Home = () => {
             <button className="button" >Shop Now</button>
             </Link> 
 
+            <Link to="/checkout" className="nav-link">
+            <button className="button" >Contact Artist</button>
+            </Link> 
+
            
             
             </h2>

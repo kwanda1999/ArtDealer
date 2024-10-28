@@ -1,7 +1,6 @@
 // Filename - Login.js
 
 import React, { useState, useEffect } from 'react';
-import '../App.css'; // Make sure to import the CSS
 import { useGoogleLogin, googleLogout } from '@react-oauth/google'; // Import Google hooks
 import axios from 'axios'; // Import axios for API calls
 import '../styles/logon.css'; // Adjust the path as necessary
@@ -95,11 +94,13 @@ const Login = () => {
     };
 
     return (
+        <div className="login-cover">
         <div className="container">
+        <div className="logo me-3"></div>
             <h2>Welcome</h2>
-            <h3>Enter your details</h3>
+            <div className='subheading'>Enter your email and password to access your account</div>
             <form onSubmit={handleLogin}>
-                <p>Email</p>
+                <div className='fields'>Email</div>
                 <input
                     type="email"
                     placeholder="Enter your email"
@@ -107,7 +108,7 @@ const Login = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <p>Password</p>
+                <div className='fields'>Password</div>
                 <input
                     type="password"
                     placeholder="*********"
@@ -115,10 +116,10 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type="submit">Login</button>
+                <button type="submit" className="login-button">Login</button>
 
                 <div>
-                    <h3>Or</h3>
+                    <div className='fields'>or</div>
                     {profile ? (
                         <div>
                             <img src={profile.picture} alt="user" />
@@ -126,14 +127,15 @@ const Login = () => {
                             <p>Name: {profile.name}</p>
                             <p>Email Address: {profile.email}</p>
                             <button onClick={logOut}>Log out</button>
-                        </div>
-                    ) : (
-                        <button onClick={login}>Sign in with Google 🚀</button>
-                    )}
-                </div>
-            </form>
-            {message && <p className={message.includes('successful') ? 'success-message' : ''}>{message}</p>}
+                 </div>
+            ) : (
+                <button onClick={login} className='login-button'>Sign in with Google</button>
+            )}
         </div>
+    </form>
+    {message && <p className={message.includes('successful') ? 'success-message' : ''}>{message}</p>}
+</div>
+</div>
     );
 };
 

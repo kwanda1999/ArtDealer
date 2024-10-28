@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react'; // Import useEffect for Google login handling
 import { useGoogleLogin, googleLogout } from '@react-oauth/google'; // Import Google hooks
 import axios from 'axios'; // Import axios for API calls
-import '../App.css'; // Make sure to import the CSS
 import { GoogleOAuthProvider } from "@react-oauth/google"
 import '../styles/logon.css'; // Adjust the path as necessary
 
@@ -96,10 +95,11 @@ const Register = () => {
     };
 
     return (
+        <div className="login-cover">
         <div className="container">
             <h2>Create Your Account</h2>
             <form onSubmit={handleRegister}>
-                <p>Name:</p>
+            <div className='fields'>Name</div>
                 <input
                     type="text"
                     placeholder="Name"
@@ -107,7 +107,7 @@ const Register = () => {
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
-                <p>Surname:</p>
+                <div className='fields'>Surname</div>
                 <input
                     type="text"
                     placeholder="Last Name"
@@ -115,7 +115,7 @@ const Register = () => {
                     onChange={(e) => setSurname(e.target.value)}
                     required
                 />
-                <p>Email:</p>
+                <div className='fields'>Email</div>
                 <input
                     type="email"
                     placeholder="Email"
@@ -123,7 +123,7 @@ const Register = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <p>Password</p>
+                <div className='fields'>Password</div>
                 <input
                     type="password"
                     placeholder="Password"
@@ -131,12 +131,12 @@ const Register = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type="submit">Register</button>
+                <button type="submit" className="login-button">Register</button>
             </form>
 
             {/* Google Login Button */}
             <div>
-                <h3>Or</h3>
+            <div className='fields'>Or</div>
                 {profile ? (
                     <div>
                         <img src={profile.picture} alt="user image" />
@@ -146,11 +146,12 @@ const Register = () => {
                         <button onClick={logOut}>Log out</button>
                     </div>
                 ) : (
-                    <button onClick={() => login()}>Sign in with Google 🚀</button>
+                    <button className="login-button" onClick={() => login()}>Sign in with Google </button>
                 )}
             </div>
 
             {message && <p className={message.includes('successful') ? 'success-message' : ''}>{message}</p>}
+        </div>
         </div>
     );
 };
