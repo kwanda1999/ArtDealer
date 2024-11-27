@@ -40,7 +40,7 @@ const Login = () => {
     const handleGoogleRegister = async (googleUser ) => {
         // Example: Register the Google user on your backend
         try {
-            const response = await fetch('http://localhost:5000/signup', {
+            const response = await fetch('http://localhost:3000/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/login', {
+            const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

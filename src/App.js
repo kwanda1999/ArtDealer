@@ -20,6 +20,7 @@ import Checkout from "./components/Checkout";
 
 
 
+
 function App() {
     return (
         <Router>
@@ -33,6 +34,7 @@ function App() {
                 <Route path="*" element={<Navigate to="/" />} />
                 <Route path="/navigation" element={<Navigation />} />
                 <Route path="/checkout" element={<Checkout />} />
+                
             </Routes>
         </Router>
     );

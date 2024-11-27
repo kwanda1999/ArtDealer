@@ -37,7 +37,7 @@ const Home = () => {
             
             </h2>
 
-            <HomeCarousel />
+        
 
             
               

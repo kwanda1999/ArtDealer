@@ -42,10 +42,13 @@ const Register = () => {
     const handleGoogleRegister = async (googleUser) => {
         // Example: Register the Google user on your backend
         try {
-            const response = await fetch('http://localhost:5000/signup', {
+            const response = await fetch('http://localhost:3000/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    "Access-Control-Origin": "*",
+                    'Accept': 'application/json',
+
                 },
                 body: JSON.stringify({
                     name: googleUser.given_name,
@@ -70,12 +73,12 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/signup', {
+            const response = await fetch('http://localhost:3000/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, surname, email, password }),
+                body: JSON.stringify({ name, surname, email, password })
             });
 
             if (response.ok) {
@@ -151,6 +154,7 @@ const Register = () => {
             </div>
 
             {message && <p className={message.includes('successful') ? 'success-message' : ''}>{message}</p>}
+            
         </div>
         </div>
     );
